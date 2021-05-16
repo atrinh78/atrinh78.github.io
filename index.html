@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Jayden's Spy Kit</title>
+
+  </head>
+  <body>
+    <h1 class="display-1 text-center" style="font-family: Brush Script MT">Jayden's Spy Kit</h1>
+
+	<div class="container" novalidate="" action="/echo" method="POST" id="myForm">
+		<nav>
+		  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+			<button class="nav-link active" id="nav-encode-tab" data-bs-toggle="tab" data-bs-target="#nav-encode" type="button" role="tab" aria-controls="nav-encode" aria-selected="true">Encode</button>
+			<button class="nav-link" id="nav-decode-tab" data-bs-toggle="tab" data-bs-target="#nav-decode" type="button" role="tab" aria-controls="nav-decode" aria-selected="false">Decode</button>
+		  </div>
+		</nav>
+		<div class="tab-content" id="nav-tabContent">
+		  <div class="tab-pane fade show active" id="nav-encode" role="tabpanel" aria-labelledby="nav-encode-tab">
+			<div class="card img-fluid" style="max-width: 700px;">
+				<div class="card img-fluid shadow-1-strong rounded-lg" style="background-image: url('https://picsum.photos/700'); height: 700px;">
+					 <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+						<div class="d-flex justify-content-center align-items-center h-700" >
+
+							<form>
+							  <div class="row">
+								<h1 class="text-white mb-0 card-title">Encode</h1>
+								<hr style="color: yellow">
+							  </div>
+							  <div class="row">
+								<label for="encodeKeyInput" class="text-white form-label">Key (2 letters only)</label>
+								<div>
+								  <input type="text" class="form-control" id="encodeKeyInput" placeholder="XX" name="encodeKeyInput" maxlength="2" pattern="[A-Za-z\s]+">
+								  <div class="invalid-feedback">Only letters and spaces allowed</div>
+								</div>
+							  </div>
+							  <div class="row">
+								<label for="encodeMessageInput" class="text-white form-label">Your Message (letters only)</label>
+								<div>
+								  <textarea class="form-control" id="encodeMessageInput" placeholder="Input the message to encode" rows="3" pattern="[A-Za-z\s]+"></textarea>
+								  <div class="invalid-feedback">Only letters and spaces allowed</div>
+								</div>
+							  </div>
+							  <div class="row">
+								<label for="encodeEnCodedMessageInput" class="text-white form-label">Encoded Message</label>
+								<div>
+								  <textarea class="form-control" id="encodeEnCodedMessageInput" placeholder="Your encoded message..." rows="3" readonly></textarea>
+								</div>
+							  </div>
+							  <br>
+								<button type="button" class="btn btn-primary" onclick="encode()" disabled>Encode</button>
+							</form>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		  </div>
+		  <div class="tab-pane fade" id="nav-decode" role="tabpanel" aria-labelledby="nav-decode-tab">
+			<div class="card img-fluid" style="max-width: 700px;">
+				<div class="card img-fluid shadow-1-strong rounded-lg" style="background-image: url('https://picsum.photos/700'); height: 700px;">
+					 <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+						<div class="d-flex justify-content-center align-items-center h-700" >
+
+							<form>
+							  <div class="row">
+								<h1 class="text-white mb-0 card-title">Decode</h1>
+								<hr style="color: yellow">
+							  </div>
+							  <div class="row">
+								<label for="decodeKeyInput" class="text-white form-label">Key (2 letters only)</label>
+								<div>
+								  <input type="text" class="form-control" id="decodeKeyInput" placeholder="XX" name="decodeKeyInput" maxlength="2" pattern="[A-Za-z\s]+">
+								  <div class="invalid-feedback">Only letters and spaces allowed</div>
+								</div>
+							  </div>
+							  <div class="row">
+								<label for="decodeCodedMessageInput" class="text-white form-label">Coded Message (letters only)</label>
+								<div>
+								  <textarea class="form-control" id="decodeCodedMessageInput" placeholder="Input the encoded message to decode" rows="3" pattern="[A-Za-z\s]+"></textarea>
+								  <div class="invalid-feedback">Only letters and spaces allowed</div>
+								</div>
+							  </div>
+							  <div class="row">
+								<label for="decodeDeCodedMessageInput" class="text-white form-label">Decoded Message</label>
+								<div>
+								  <textarea class="form-control" id="decodeDeCodedMessageInput" placeholder="Your message..." rows="3" readonly></textarea>
+								</div>
+							  </div>
+							  <br>
+								<button type="button" class="btn btn-primary" onclick="decode()" disabled>Decode</button>
+							</form>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		  </div>
+		</div>
+
+<!--
+		<div class="row">
+		<div class="col">
+			<div class="card img-fluid" style="max-width: 700px;">
+				<div class="card img-fluid shadow-1-strong rounded-lg" style="background-image: url('https://picsum.photos/700?grayscale'); height: 700px;">
+					 <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+						<div class="d-flex justify-content-center align-items-center h-700" >
+
+							<form>
+							  <div class="row">
+								<h1 class="text-white mb-0 card-title">Decode</h1>
+								<hr style="color: yellow">
+							  </div>
+							  <div class="row">
+								<label for="decodeKeyInput" class="text-white form-label">Key (2 letters only)</label>
+								<div>
+								  <input type="text" class="form-control" id="decodeKeyInput" placeholder="XX" name="decodeKeyInput" maxlength="2" pattern="[A-Za-z\s]+">
+								  <div class="invalid-feedback">Only letters and spaces allowed</div>
+								</div>
+							  </div>
+							  <div class="row">
+								<label for="decodeCodedMessageInput" class="text-white form-label">Coded Message (letters only)</label>
+								<div>
+								  <textarea class="form-control" id="decodeCodedMessageInput" placeholder="Input the encoded message to decode" rows="3" pattern="[A-Za-z\s]+"></textarea>
+								  <div class="invalid-feedback">Only letters and spaces allowed</div>
+								</div>
+							  </div>
+							  <div class="row">
+								<label for="decodeDeCodedMessageInput" class="text-white form-label">Decoded Message</label>
+								<div>
+								  <textarea class="form-control" id="decodeDeCodedMessageInput" placeholder="Your message..." rows="3" readonly></textarea>
+								</div>
+							  </div>
+							  <br>
+								<button type="button" class="btn btn-primary" onclick="decode()" disabled>Decode</button>
+							</form>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card img-fluid" style="max-width: 700px;">
+				<div class="card img-fluid shadow-1-strong rounded-lg" style="background-image: url('https://picsum.photos/700'); height: 700px;">
+					 <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+						<div class="d-flex justify-content-center align-items-center h-700" >
+
+							<form>
+							  <div class="row">
+								<h1 class="text-warning mb-0 card-title">Encode</h1>
+								<hr style="color: yellow">
+							  </div>
+							  <div class="row">
+								<label for="encodeKeyInput" class="text-warning form-label">Key (2 letters only)</label>
+								<div>
+								  <input type="text" class="form-control" id="encodeKeyInput" placeholder="XX" name="encodeKeyInput" maxlength="2" pattern="[A-Za-z\s]+">
+								  <div class="invalid-feedback">Only letters and spaces allowed</div>
+								</div>
+							  </div>
+							  <div class="row">
+								<label for="encodeMessageInput" class="text-warning form-label">Your Message (letters only)</label>
+								<div>
+								  <textarea class="form-control" id="encodeMessageInput" placeholder="Input the message to encode" rows="3" pattern="[A-Za-z\s]+"></textarea>
+								  <div class="invalid-feedback">Only letters and spaces allowed</div>
+								</div>
+							  </div>
+							  <div class="row">
+								<label for="encodeEnCodedMessageInput" class="text-warning form-label">Encoded Message</label>
+								<div>
+								  <textarea class="form-control" id="encodeEnCodedMessageInput" placeholder="Your encoded message..." rows="3" readonly></textarea>
+								</div>
+							  </div>
+							  <br>
+								<button type="button" class="btn btn-primary" onclick="encode()" disabled>Encode</button>
+							</form>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		-->
+	</div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+	<script>
+	var alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('')
+
+	function getIndexInAlphabet(chars) {
+	  
+		validateItemIsString = function(item) {
+		  if (typeof item !== 'string') {
+			throw new Error('Element ' + i +
+			  ' invalid because not of type string.');
+		  }
+		},
+		validateCharsAreStrings = function(chars) {
+		  chars.forEach(function(item, i) {
+			validateItemIsString(item);
+		  });
+		},
+		getSanitizedChars = function(chars) {
+		  if (!Array.isArray(chars)) {
+			  chars = [chars];
+		  }
+
+		  validateCharsAreStrings(chars);
+
+		  return chars;
+		},
+		getIndexInAlphabet = function(char, i) {
+		  var ret = alphabet.indexOf(char.toLowerCase()) + 1;
+
+		  if (ret === 0) {
+			throw new Error('Element ' + i + ' invalid because' + ' not an alphabetic character.');
+		  }
+
+		  return ret;
+		};
+
+	  return getSanitizedChars(chars).map(function(char, i) {
+		return getIndexInAlphabet(char, i);
+	  });
+	}
+	
+	function encodeOffset (char, i)	{
+		if (char === ' ') return ' '
+		var charIndex = getIndexInAlphabet(char)
+		
+		if (((charIndex+i) % 26) - 1 < 0) {
+			return alphabet[((charIndex+i) % 26) + 26 - 1]
+		} else {
+			return alphabet[((charIndex+i) % 26) - 1]
+		}
+	}
+	
+	function decodeOffset (char, i)	{
+		if (char === ' ') return ' '
+		var charIndex = getIndexInAlphabet(char)
+		
+		if (((charIndex-i) % 26) - 1 < 0) {
+			return alphabet[((charIndex-i) % 26) + 26 - 1]
+		} else {
+			return alphabet[((charIndex-i) % 26) - 1]
+		}
+	}
+	
+	function getKeyOffset (key)	{
+		var keyArr = key.split('')
+		try {
+
+			var keyIndexArr = [getIndexInAlphabet(keyArr[0]), getIndexInAlphabet(keyArr[1])]
+			//console.log(keyArr[0] + '-' + keyIndexArr[0]);
+			//console.log(keyArr[1] + '-' + keyIndexArr[1]);
+			var offset = keyIndexArr[1] - keyIndexArr[0];
+			console.log('offset=' + offset);
+			return offset
+		} catch (e) {
+			console.log(e.message);
+			console.log(e.stack);
+			return null
+		}
+	}
+	
+	function decode() {
+		var key = document.getElementById('decodeKeyInput').value
+		var encMsg = document.getElementById('decodeCodedMessageInput').value
+		var msgArr = encMsg.split('')
+		var decMsg = ""
+		
+		//getKeyOffset("ws")
+		//getKeyOffset("sw")
+		
+		try {
+			var offset = getKeyOffset(key)
+			
+			if (offset !== null) 
+			{
+				
+				for (i = 0; i < msgArr.length; i++) {
+				  var tmp = decodeOffset(msgArr[i], offset)
+				  //console.log(msgArr[i] + '->' + tmp);
+				  decMsg += tmp;
+				} 
+				
+				
+			}
+			else
+			{
+				throw "Can't determine key offset";
+			}
+			
+
+
+		} catch (e) {
+			console.log(e.message);
+			console.log(e.stack);
+			decMsg = e.message;
+		}
+
+	
+		document.getElementById('decodeDeCodedMessageInput').value = decMsg
+	
+	}
+	
+	function encode() {
+		var key = document.getElementById('encodeKeyInput').value
+		var msg = document.getElementById('encodeMessageInput').value
+		var msgArr = msg.split('')
+		var encMsg = ""
+	
+		try {
+			var offset = getKeyOffset(key)
+			
+			if (offset !== null) 
+			{
+				
+				for (i = 0; i < msgArr.length; i++) {
+				  var tmp = encodeOffset(msgArr[i], offset)
+				  //console.log(msgArr[i] + '->' + tmp);
+				  encMsg += tmp;
+				} 
+				
+				
+			}
+			else
+			{
+				throw "Can't determine key offset";
+			}
+			
+
+
+		} catch (e) {
+			console.log(e.message);
+			console.log(e.stack);
+			encMsg = e.message;
+		}
+
+	
+		document.getElementById('encodeEnCodedMessageInput').value = encMsg
+	
+	}
+	
+	(function() {
+	  'use strict';
+	  window.addEventListener('load', function() {
+		// fetch all the forms we want to apply custom style
+		var inputs = document.getElementsByClassName('form-control')
+
+		// loop over each input and watch blur event
+		var validation = Array.prototype.filter.call(inputs, function(input) {
+
+		  input.addEventListener('blur', function(event) {
+			// reset
+			input.classList.remove('is-invalid')
+			input.classList.remove('is-valid')
+
+			if (input.checkValidity() === false) {
+				input.classList.add('is-invalid')
+			}
+			else {
+				input.classList.add('is-valid')
+			}
+		  }, false);
+		});
+	  }, false);
+	})()
+
+	</script>
+  </body>
+</html>
