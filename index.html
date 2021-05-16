@@ -24,7 +24,7 @@
 		<div class="tab-content" id="nav-tabContent">
 		  <div class="tab-pane fade show active" id="nav-encode" role="tabpanel" aria-labelledby="nav-encode-tab">
 			<div class="card img-fluid" style="max-width: 700px;">
-				<div class="card img-fluid shadow-1-strong rounded-lg" style="background-image: url('https://picsum.photos/700?random=2'); height: 700px;">
+				<div class="card img-fluid shadow-1-strong rounded-lg" style="background-image: url('https://picsum.photos/700?random=2&grayscale'); height: 700px;">
 					 <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
 						<div class="d-flex justify-content-center align-items-center h-700" >
 
@@ -104,93 +104,6 @@
 			</div>
 		  </div>
 		</div>
-
-<!--
-		<div class="row">
-		<div class="col">
-			<div class="card img-fluid" style="max-width: 700px;">
-				<div class="card img-fluid shadow-1-strong rounded-lg" style="background-image: url('https://picsum.photos/700?grayscale'); height: 700px;">
-					 <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
-						<div class="d-flex justify-content-center align-items-center h-700" >
-
-							<form>
-							  <div class="row">
-								<h1 class="text-white mb-0 card-title">Decode</h1>
-								<hr style="color: yellow">
-							  </div>
-							  <div class="row">
-								<label for="decodeKeyInput" class="text-white form-label">Key (2 letters only)</label>
-								<div>
-								  <input type="text" class="form-control" id="decodeKeyInput" placeholder="XX" name="decodeKeyInput" maxlength="2" pattern="[A-Za-z\s]+">
-								  <div class="invalid-feedback">Only letters and spaces allowed</div>
-								</div>
-							  </div>
-							  <div class="row">
-								<label for="decodeCodedMessageInput" class="text-white form-label">Coded Message (letters only)</label>
-								<div>
-								  <textarea class="form-control" id="decodeCodedMessageInput" placeholder="Input the encoded message to decode" rows="3" pattern="[A-Za-z\s]+"></textarea>
-								  <div class="invalid-feedback">Only letters and spaces allowed</div>
-								</div>
-							  </div>
-							  <div class="row">
-								<label for="decodeDeCodedMessageInput" class="text-white form-label">Decoded Message</label>
-								<div>
-								  <textarea class="form-control" id="decodeDeCodedMessageInput" placeholder="Your message..." rows="3" readonly></textarea>
-								</div>
-							  </div>
-							  <br>
-								<button type="button" class="btn btn-primary" onclick="decode()" disabled>Decode</button>
-							</form>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col">
-			<div class="card img-fluid" style="max-width: 700px;">
-				<div class="card img-fluid shadow-1-strong rounded-lg" style="background-image: url('https://picsum.photos/700?random=1'); height: 700px;">
-					 <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
-						<div class="d-flex justify-content-center align-items-center h-700" >
-
-							<form>
-							  <div class="row">
-								<h1 class="text-warning mb-0 card-title">Encode</h1>
-								<hr style="color: yellow">
-							  </div>
-							  <div class="row">
-								<label for="encodeKeyInput" class="text-warning form-label">Key (2 letters only)</label>
-								<div>
-								  <input type="text" class="form-control" id="encodeKeyInput" placeholder="XX" name="encodeKeyInput" maxlength="2" pattern="[A-Za-z\s]+">
-								  <div class="invalid-feedback">Only letters and spaces allowed</div>
-								</div>
-							  </div>
-							  <div class="row">
-								<label for="encodeMessageInput" class="text-warning form-label">Your Message (letters only)</label>
-								<div>
-								  <textarea class="form-control" id="encodeMessageInput" placeholder="Input the message to encode" rows="3" pattern="[A-Za-z\s]+"></textarea>
-								  <div class="invalid-feedback">Only letters and spaces allowed</div>
-								</div>
-							  </div>
-							  <div class="row">
-								<label for="encodeEnCodedMessageInput" class="text-warning form-label">Encoded Message</label>
-								<div>
-								  <textarea class="form-control" id="encodeEnCodedMessageInput" placeholder="Your encoded message..." rows="3" readonly></textarea>
-								</div>
-							  </div>
-							  <br>
-								<button type="button" class="btn btn-primary" onclick="encode()" disabled>Encode</button>
-							</form>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		</div>
-		-->
-	</div>
-
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
